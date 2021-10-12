@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reporte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">50 words max</ion-label>
+      <ion-input type="reporte" required></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Send</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <small>
+      Please provide a detailed explanation of the incident and if wish you can add a picture 
+      for further evidence.
+    </small>
+  </form>
+</ion-content>

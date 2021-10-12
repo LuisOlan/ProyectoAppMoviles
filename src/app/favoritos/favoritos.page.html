@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-text>
+        id
+      </ion-text>
+    </ion-col>
+    <ion-col>
+      <ion-text>
+        location
+      </ion-text>
+    </ion-col>
+    <ion-col>
+      <ion-text>
+        km
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngFor="let favoritos of favorito">
+    <ion-col>
+      <ion-text>
+        {{favoritos.id}}
+      </ion-text>
+    </ion-col>
+    <ion-col>
+      <ion-text>
+        {{favoritos.location}}
+      </ion-text>
+    </ion-col>
+    <ion-col>
+      <ion-text>
+        {{favoritos.km}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+
+

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>FAQ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let faq of faqs" [routerLink]="['/faqs',faq.idQuestion]">
+    {{faq.question}}
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text>
+          id
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          question
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          answer
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let faq of faqs">
+      <ion-col>
+        <ion-text>
+          {{faq.idQuestion}}
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          {{faq.question}}
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          {{faq.answer}}
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
