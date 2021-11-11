@@ -13,7 +13,7 @@ import { FAQPage } from './faq.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    FAQPageRoutingModule,
+    FAQPageRoutingModule
   ],
   declarations: [FAQPage]
 })

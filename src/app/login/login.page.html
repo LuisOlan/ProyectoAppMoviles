@@ -1,29 +1,80 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Log In</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding ion-text-center">
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <ion-grid>
+      <ion-row style="margin-top: 20%;">
+        <ion-col size="4" offset="4">
+          <div>
+            <ion-img src="https://mid-interactive.com/source/profile.png"></ion-img>
+          </div>
+        </ion-col>
+      </ion-row>
 
-<ion-content>
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
+      <ion-row>
+        <ion-col size="6" offset="3">
+          <div>
+            <h1>{{!isLoginMode ? 'Registro' : 'Login'}}</h1>
+          </div>
+        </ion-col>
+      </ion-row>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
-
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="danger" expand="block" [routerLink]="['/tabs']">Sign In</ion-button>
-        <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
-      </ion-col>
-    </ion-row>
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Usuario</ion-label>
+              <ion-input
+                type="email"
+                name="user"
+                #userCtrl="ngModel"
+                ngModel
+                required
+              ></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!userCtrl.valid && userCtrl.touched" lines="none">
+              <div class="ion-text-end">
+                <ion-label color="danger" position="stacked">Ingresa un correo valido</ion-label>
+              </div>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input
+              type="password"
+                name="pass"
+                #passCtrl="ngModel"
+                minlength="8"
+                ngModel 
+                required
+              ></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!passCtrl.valid && passCtrl.touched" lines="none">
+              <div class="ion-text-end">
+                <ion-label color="danger" position="stacked">Ingresa una contraseña valida</ion-label>
+              </div>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-button
+          type="submit"
+          expand="block"
+          [routerLink]="['/tabs']"
+          *ngIf="!isLoading"
+          [disabled]="!loginForm.valid">
+          {{!isLoginMode ? 'Guardar' : 'Ingresar'}}
+        </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 10%;">
+        <ion-col size="10" offset="1">
+          <a
+            (click)="onSwitchMode()">
+            {{isLoginMode ? 'Registrarse' : 'Ir a inicio'}}
+          </a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>
+

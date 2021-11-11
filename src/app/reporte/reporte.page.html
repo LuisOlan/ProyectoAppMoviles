@@ -7,6 +7,11 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-item>
+  <ion-label>DDDD MMM D, YYYY</ion-label>
+  <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2000" max="2030" value="2021-11-09"></ion-datetime>
+</ion-item>
+
 <ion-content>
   <form>
     <ion-item lines="full">
@@ -25,4 +30,15 @@
       for further evidence.
     </small>
   </form>
+</ion-content>
+<ion-content>
+  <input type="file" accept="image/jpeg" *ngIf="usarPicker" #filePicker (change)="onFileSelected($event)">
+  <div class="picker">
+    <ion-img role="button" (click)="onPickImage()" class="image" [src]="selectedImage" *ngIf="selectedImage"></ion-img>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="onPickImage()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
